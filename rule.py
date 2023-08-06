@@ -57,6 +57,7 @@ class Check:
     
 num = 0
 def check(x, y, color):
+    global num
     num = 0
     ret = 0
     if board[y - 1][x - 1] != Color.empty:
