@@ -17,6 +17,10 @@ class TestMyTest(unittest.TestCase):
     def test_check1(self):
         result = rule.check(1, 1, rule.Color.black)
         self.assertEqual(rule.Check.NG, result)
+    
+    def test_check2(self):
+        result = rule.check(1, 1, rule.Color.white)
+        self.assertEqual(rule.Check.NG, result)
         
 if __name__ == "__main__":
     rule.resetBoard()
