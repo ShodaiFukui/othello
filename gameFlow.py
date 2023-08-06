@@ -22,8 +22,9 @@ def myTurn(my_color):
                     continue
                 break
             
+            checkResult = rule.check(x, y, my_color)
             rule.putGo(x, y, my_color)
-            if rule.check(x, y, my_color) == rule.Check.OK:
+            if checkResult == rule.Check.OK:
                 print(f"({x},{y})に碁を置きました．")
                 rule.printBoard()
                 break

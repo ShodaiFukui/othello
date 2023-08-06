@@ -55,7 +55,6 @@ class Check:
     OK = 0
     NG = 1
     
-num = 0
 def check(x, y, color):
     global num
     num = 0
