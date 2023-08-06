@@ -41,3 +41,23 @@ def npcTurn(npc_color):
                 print(f"({x},{y})に碁を置きました．")
                 rule.printBoard()
                 break
+
+def game(my_color, npc_color, mode):
+    
+    """ゲームの流れを管理
+    """
+    
+    if(mode == "0"):
+        while True:
+            npcTurn(my_color)
+            npcTurn(npc_color)
+            if rule.path(my_color) == rule.Path.Yes and rule.path(npc_color) == rule.Path.Yes:
+                print("ゲームセット！")
+                break
+    else:
+        while True:
+            myTurn(my_color)
+            npcTurn(npc_color)
+            if rule.path(my_color) == rule.Path.Yes and rule.path(npc_color) == rule.Path.Yes:
+                print("ゲームセット！")
+                break
