@@ -11,6 +11,9 @@ class Person:
     def __init__(self, color):
         self.color = color
 
+def Person_of(color):
+    return Person(color)
+
 board = [[Color.empty for _ in range(WIDTH)] for _ in range(HEIGHT)]
 change = [[-1 for _ in range(2)] for _ in range(21)]
 
