@@ -5,7 +5,6 @@ import printResult
 def main():
     rule.resetBoard()
     rule.printBoard()
-    
     while True:
         mode = input("モード選択. 0..検証用/1..プレイ: ")
         choice = input("あなたの碁の色を入力して下さい. 'black' or 'white': ")
