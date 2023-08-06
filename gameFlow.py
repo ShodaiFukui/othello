@@ -2,7 +2,6 @@ import rule
 import random
 
 def myTurn(my_color):
-    
     print("\n＜あなたのターン＞")
     if rule.path(my_color) == rule.Path.Yes:
         print("碁を置くところがありません．\nパスします．")
@@ -25,6 +24,20 @@ def myTurn(my_color):
             
             rule.putGo(x, y, my_color)
             if rule.check(x, y, my_color) == rule.Check.OK:
+                print(f"({x},{y})に碁を置きました．")
+                rule.printBoard()
+                break
+
+def npcTurn(npc_color): 
+    print("\n＜コンピュータのターン＞")
+    if rule.path(npc_color) == rule.Path.Yes:
+        print("碁を置くところがありません．\nパスします．")
+    else:
+        while True:
+            x = random.randint(1, 8)
+            y = random.randint(1, 8)
+            if rule.check(x, y, npc_color) == rule.Check.OK:
+                rule.putGo(x, y, npc_color)
                 print(f"({x},{y})に碁を置きました．")
                 rule.printBoard()
                 break
