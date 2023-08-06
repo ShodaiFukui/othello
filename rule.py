@@ -22,3 +22,11 @@ def resetBoard():
                 board[i][j] = Color.black
             elif ((i == HEIGHT//2 - 1 and j == WIDTH//2) or (i == HEIGHT//2 and j == WIDTH//2 - 1)):
                 board[i][j] = Color.white
+
+def printColor(color):
+    if color == Color.black:
+        print("○ ", end="")
+    elif color == Color.white:
+        print("● ", end="")
+    else:
+        print("  ", end="")
