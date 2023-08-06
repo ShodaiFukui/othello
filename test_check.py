@@ -31,12 +31,20 @@ class TestMyTest(unittest.TestCase):
         self.assertEqual(rule.Check.OK, result)
     
     def test_check5(self):
-        result = rule.check(3, 6, rule.Color.white)
+        result = rule.check(3, 6, rule.Color.black)
         self.assertEqual(rule.Check.NG, result)
         
     def test_check6(self):
         result = rule.check(3, 6, rule.Color.white)
         self.assertEqual(rule.Check.NG, result)
+    
+    def test_check7(self):
+        result = rule.check(4, 2, rule.Color.black)
+        self.assertEqual(rule.Check.NG, result)
+        
+    def test_check8(self):
+        result = rule.check(4, 2, rule.Color.white)
+        self.assertEqual(rule.Check.OK, result)
         
 if __name__ == "__main__":
     rule.resetBoard()
