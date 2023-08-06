@@ -30,3 +30,15 @@ def printColor(color):
         print("● ", end="")
     else:
         print("  ", end="")
+
+def printBoard():
+    resetChange()
+    print("  ", end="")
+    for i in range(SIZE):
+        print(f"{i + 1} ", end="")
+    print()
+    for i in range(HEIGHT):
+        print(f"{i + 1} ", end="")
+        for j in range(WIDTH):
+            printColor(board[i][j])
+        print()
