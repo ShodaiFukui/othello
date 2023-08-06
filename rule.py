@@ -47,3 +47,7 @@ def printBoard():
         for j in range(WIDTH):
             printColor(board[i][j])
         print()
+
+class Check:
+    OK = 0
+    NG = 1
