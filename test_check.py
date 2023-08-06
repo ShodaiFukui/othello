@@ -22,8 +22,12 @@ class TestMyTest(unittest.TestCase):
         result = rule.check(1, 1, rule.Color.white)
         self.assertEqual(rule.Check.NG, result)
         
+    def test_check3(self):
+        result = rule.check(5, 2, rule.Color.white)
+        self.assertEqual(rule.Check.OK, result)
+        
 if __name__ == "__main__":
     rule.resetBoard()
-    rule.board[4][2] = rule.Color.black
-    rule.board[5][2] = rule.Color.white
+    rule.board[2][4] = rule.Color.black
+    rule.board[2][5] = rule.Color.white
     unittest.main()
