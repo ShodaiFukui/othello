@@ -26,7 +26,7 @@ def resetBoard():
 def resetChange():
     for i in range(21):
         for j in range(2):
-            change[i][j] = -1
+            change[i][j] = 1
 
 def printColor(color):
     if color == Color.black:
