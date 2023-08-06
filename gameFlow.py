@@ -47,7 +47,13 @@ def game(my_color, npc_color, mode):
         while True:
             npcTurn(my_color)
             npcTurn(npc_color)
+            if rule.path(my_color) == rule.Path.Yes and rule.path(npc_color) == rule.Path.Yes:
+                print("ゲームセット！")
+                break
     else:
         while True:
             myTurn(my_color)
             npcTurn(npc_color)
+            if rule.path(my_color) == rule.Path.Yes and rule.path(npc_color) == rule.Path.Yes:
+                print("ゲームセット！")
+                break
