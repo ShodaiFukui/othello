@@ -20,6 +20,8 @@ def main():
         break
     
     gameFlow.game(player.color, npc.color, mode)
+    printResult.result(player.color)
+    printResult.printOut()
 
 if __name__ == "__main__":
     main()
