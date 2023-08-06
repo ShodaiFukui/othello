@@ -45,7 +45,7 @@ class TestMyTest(unittest.TestCase):
     def test_check8(self):
         result = rule.check(4, 2, rule.Color.white)
         self.assertEqual(rule.Check.OK, result)
-        
+
 if __name__ == "__main__":
     rule.resetBoard()
     rule.board[2][4] = rule.Color.black
