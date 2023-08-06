@@ -103,19 +103,10 @@ def putGo(x, y, color):
                     print(f"({j}, {k})")
 
 class Path:
-    """パスするかどうか
-    Args:
-        YES(int):0
-        NO(int):1
-    """
     Yes = 0
     No = 1
 
 def path(color):
-    """パスするかどうか
-    Returns:
-        Path:Yes or No
-    """
     for i in range(1, HEIGHT + 1):
         for j in range(1, WIDTH + 1):
             if check(i, j, color) == Check.OK:
