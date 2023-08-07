@@ -3,21 +3,46 @@ WIDTH = SIZE
 HEIGHT = SIZE
 
 class Color:
+    """色を管理するクラス
+    
+    Args:
+        black(int): 黒,0
+        white (int): 白,1
+        empty (int): 指定なし,2
+    """
     black = 0
     white = 1
     empty = 2
     
 class Person:
+    """プレイヤーを管理クラス
+    
+    Args:
+        color (str): 碁の色情報
+    """
     def __init__(self, color):
         self.color = color
 
 def Person_of(color):
+    """プレイヤーを管理クラスを作成する関数
+    
+    Args:
+        color (str): 碁の色情報
+        
+    Returns:
+        Person:指定した色情報を持つPersonクラス変数
+    """
     return Person(color)
 
 board = [[Color.empty for _ in range(WIDTH)] for _ in range(HEIGHT)]
 change = [[-1 for _ in range(2)] for _ in range(21)]
 
 def resetBoard():
+    """盤面を初期状態に戻す
+    
+    Args:
+        board ([Color][Color]): 各位置の碁の色情報を格納する配列
+    """
     for i in range(HEIGHT):
         for j in range(WIDTH):
             board[i][j] = Color.empty
@@ -27,11 +52,21 @@ def resetBoard():
                 board[i][j] = Color.white
 
 def resetChange():
+    """色の変わる場所を初期状態に戻す
+    
+    Args:
+        change (list[int][int]): 色の変わる場所を格納する配列
+    """
     for i in range(21):
         for j in range(2):
             change[i][j] = -1
 
 def printColor(color):
+    """碁をプリント
+    
+    Args:
+        color (Color): 碁の色
+    """
     if color == Color.black:
         print("○ ", end="")
     elif color == Color.white:
@@ -40,6 +75,11 @@ def printColor(color):
         print("  ", end="")
 
 def printBoard():
+    """盤面を初期状態に戻す
+    
+    Args:
+        board (list[Color][Color]): 各位置の碁の色情報を格納する配列
+    """
     resetChange()
     print("  ", end="")
     for i in range(SIZE):
@@ -52,10 +92,24 @@ def printBoard():
         print()
 
 class Check:
+    """チェックの結果を示すクラス
+    
+    Args:
+        OK (int): 0
+        NG (int): 1
+    """
     OK = 0
     NG = 1
     
 def check(x, y, color):
+    """碁を置けるかチェックする
+    
+    Args:
+        num (int): 色の変わる碁の数
+        ret (int): 色の変わる碁が一つでもあれば1．なければ0．
+        board (list[Color][Color]): 各位置の碁の色情報を格納する配列
+        change (list[Color][Color]): 各位置の碁の色情報を格納する配列
+    """
     global num
     num = 0
     ret = 0
@@ -92,6 +146,9 @@ def check(x, y, color):
         return Check.NG
 
 def putGo(x, y, color):
+    """盤面の変更が必要であれば変更する
+        変更がなければ変更が可能な座標を表示
+    """
     if check(x, y, color) == Check.OK:
         for i in range(num):
             board[change[i][0]][change[i][1]] = color
@@ -103,10 +160,21 @@ def putGo(x, y, color):
                     print(f"({j}, {k})")
 
 class Path:
+    """パスするかどうか
+    
+    Args:
+        YES (int): 0
+        NO (int): 1
+    """
     Yes = 0
     No = 1
 
 def path(color):
+    """パスするかどうか
+    
+    Returns:
+        Path:Yes or No
+    """
     for i in range(1, HEIGHT + 1):
         for j in range(1, WIDTH + 1):
             if check(i, j, color) == Check.OK:

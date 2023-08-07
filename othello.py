@@ -3,6 +3,14 @@ import gameFlow
 import printResult
 
 def main():
+    """メイン文
+    
+    Args:
+        mode (str): モード選択番号を格納
+        choice (str): 自分の色を格納
+        player (Color): 自分の色を格納するColorクラス変数
+        npc (Color): npcの色を格納するColorクラス変数
+    """
     rule.resetBoard()
     rule.printBoard()
     while True:

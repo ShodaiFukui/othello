@@ -1,6 +1,13 @@
 import rule
 
 def result(my_color):
+    """結果を表示
+    
+    Args:
+        my_color (Color): プレイヤーのカラー
+        sumOfBlack (int): 最後の盤面での黒の数
+        sumOfWhite (int): 最後の盤面での白の数
+    """
     sumOfBlack = sum([1 for row in rule.board for cell in row if cell == rule.Color.black])
     sumOfWhite = sum([1 for row in rule.board for cell in row if cell == rule.Color.white])
     print("\n＜集計結果＞")
@@ -18,6 +25,12 @@ def result(my_color):
         print("引き分け")
 
 def printOut():
+    """結果をテキストデータとして出力する
+    
+    Args:
+        sumOfBlack (int): 最後の盤面での黒の数
+        sumOfWhite (int): 最後の盤面での白の数
+    """
     with open("result.txt", "w") as fp:
         fp.write("  ")
         for i in range(rule.SIZE):

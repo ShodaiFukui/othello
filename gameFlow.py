@@ -2,6 +2,12 @@ import rule
 import random
 
 def myTurn(my_color):
+    """自分のターンの制御
+    
+    Args:
+        x(int):これから置くコマのx座標
+        y(int):これから置くコマのy座標
+    """
     print("\n＜あなたのターン＞")
     if rule.path(my_color) == rule.Path.Yes:
         print("碁を置くところがありません．\nパスします．")
@@ -30,6 +36,12 @@ def myTurn(my_color):
                 break
 
 def npcTurn(npc_color): 
+    """コンピュータのターンの制御
+    
+    Args:
+        x(int):これから置くコマのx座標
+        y(int):これから置くコマのy座標
+    """
     print("\n＜コンピュータのターン＞")
     if rule.path(npc_color) == rule.Path.Yes:
         print("碁を置くところがありません．\nパスします．")
@@ -44,6 +56,8 @@ def npcTurn(npc_color):
                 break
 
 def game(my_color, npc_color, mode):
+    """ゲームの流れを管理
+    """
     if(mode == "0"):
         while True:
             npcTurn(my_color)
