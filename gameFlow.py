@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 import rule
 import random
 
@@ -16,17 +18,23 @@ def myTurn(my_color):
             x = -1
             y = -1
             while True:
-                x = int(input("x座標(1~8) : "))
-                if x < 1 or x > 8:
+                try:
+                    x = int(input("x座標(1~8) : "))
+                    if x < 1 or x > 8:
+                        print("1~8の整数で答えてください．")
+                        continue
+                    break
+                except ValueError:
                     print("1~8の整数で答えてください．")
-                    continue
-                break
             while True:
-                y = int(input("y座標(1~8) : "))
-                if y < 1 or y > 8:
+                try:
+                    y = int(input("y座標(1~8) : "))
+                    if y < 1 or y > 8:
+                        print("1~8の整数で答えてください．")
+                        continue
+                    break
+                except ValueError:
                     print("1~8の整数で答えてください．")
-                    continue
-                break
             
             checkResult = rule.check(x, y, my_color)
             rule.putGo(x, y, my_color)

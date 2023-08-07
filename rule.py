@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 SIZE = 8
 WIDTH = SIZE
 HEIGHT = SIZE

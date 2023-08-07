@@ -1,3 +1,5 @@
+import sys
+sys.dont_write_bytecode = True
 import rule
 
 def result(my_color):
