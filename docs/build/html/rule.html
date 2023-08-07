@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rule module &mdash; othello 1.0 ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            othello
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">rule module</a><ul>
+<li><a class="reference internal" href="#rule.Check"><code class="docutils literal notranslate"><span class="pre">Check</span></code></a><ul>
+<li><a class="reference internal" href="#rule.Check.NG"><code class="docutils literal notranslate"><span class="pre">Check.NG</span></code></a></li>
+<li><a class="reference internal" href="#rule.Check.OK"><code class="docutils literal notranslate"><span class="pre">Check.OK</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rule.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
+<li><a class="reference internal" href="#rule.Color.black"><code class="docutils literal notranslate"><span class="pre">Color.black</span></code></a></li>
+<li><a class="reference internal" href="#rule.Color.empty"><code class="docutils literal notranslate"><span class="pre">Color.empty</span></code></a></li>
+<li><a class="reference internal" href="#rule.Color.white"><code class="docutils literal notranslate"><span class="pre">Color.white</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rule.Path"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a><ul>
+<li><a class="reference internal" href="#rule.Path.No"><code class="docutils literal notranslate"><span class="pre">Path.No</span></code></a></li>
+<li><a class="reference internal" href="#rule.Path.Yes"><code class="docutils literal notranslate"><span class="pre">Path.Yes</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rule.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a></li>
+<li><a class="reference internal" href="#rule.Person_of"><code class="docutils literal notranslate"><span class="pre">Person_of()</span></code></a></li>
+<li><a class="reference internal" href="#rule.check"><code class="docutils literal notranslate"><span class="pre">check()</span></code></a></li>
+<li><a class="reference internal" href="#rule.path"><code class="docutils literal notranslate"><span class="pre">path()</span></code></a></li>
+<li><a class="reference internal" href="#rule.printBoard"><code class="docutils literal notranslate"><span class="pre">printBoard()</span></code></a></li>
+<li><a class="reference internal" href="#rule.printColor"><code class="docutils literal notranslate"><span class="pre">printColor()</span></code></a></li>
+<li><a class="reference internal" href="#rule.putGo"><code class="docutils literal notranslate"><span class="pre">putGo()</span></code></a></li>
+<li><a class="reference internal" href="#rule.resetBoard"><code class="docutils literal notranslate"><span class="pre">resetBoard()</span></code></a></li>
+<li><a class="reference internal" href="#rule.resetChange"><code class="docutils literal notranslate"><span class="pre">resetChange()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">othello</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">rule module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rule.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-rule">
+<span id="rule-module"></span><h1>rule module<a class="headerlink" href="#module-rule" title="この見出しへのパーマリンク"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="rule.Check">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">Check</span></span><a class="headerlink" href="#rule.Check" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>チェックの結果を示すクラス</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>OK</strong> (<em>int</em>) -- 0</p></li>
+<li><p><strong>NG</strong> (<em>int</em>) -- 1</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Check.NG">
+<span class="sig-name descname"><span class="pre">NG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#rule.Check.NG" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Check.OK">
+<span class="sig-name descname"><span class="pre">OK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#rule.Check.OK" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rule.Color">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><a class="headerlink" href="#rule.Color" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>色を管理するクラス</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>black</strong> (<em>int</em>) -- 黒,0</p></li>
+<li><p><strong>white</strong> (<em>int</em>) -- 白,1</p></li>
+<li><p><strong>empty</strong> (<em>int</em>) -- 指定なし,2</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Color.black">
+<span class="sig-name descname"><span class="pre">black</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#rule.Color.black" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Color.empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#rule.Color.empty" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Color.white">
+<span class="sig-name descname"><span class="pre">white</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#rule.Color.white" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rule.Path">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">Path</span></span><a class="headerlink" href="#rule.Path" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>パスするかどうか</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>YES</strong> (<em>int</em>) -- 0</p></li>
+<li><p><strong>NO</strong> (<em>int</em>) -- 1</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Path.No">
+<span class="sig-name descname"><span class="pre">No</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#rule.Path.No" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rule.Path.Yes">
+<span class="sig-name descname"><span class="pre">Yes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#rule.Path.Yes" title="この定義へのパーマリンク"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rule.Person">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.Person" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>プレイヤーを管理クラス</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>color</strong> (<em>str</em>) -- 碁の色情報</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.Person_of">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">Person_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.Person_of" title="この定義へのパーマリンク"></a></dt>
+<dd><p>プレイヤーを管理クラスを作成する関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>color</strong> (<em>str</em>) -- 碁の色情報</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p>指定した色情報を持つPersonクラス変数</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#rule.Person" title="rule.Person">Person</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.check">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.check" title="この定義へのパーマリンク"></a></dt>
+<dd><p>碁を置けるかチェックする</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>int</em>) -- 色の変わる碁の数</p></li>
+<li><p><strong>ret</strong> (<em>int</em>) -- 色の変わる碁が一つでもあれば1．なければ0．</p></li>
+<li><p><strong>board</strong> (<em>list</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em>) -- 各位置の碁の色情報を格納する配列</p></li>
+<li><p><strong>change</strong> (<em>list</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em>) -- 各位置の碁の色情報を格納する配列</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.path">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.path" title="この定義へのパーマリンク"></a></dt>
+<dd><p>パスするかどうか</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Yes or No</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#rule.Path" title="rule.Path">Path</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.printBoard">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">printBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rule.printBoard" title="この定義へのパーマリンク"></a></dt>
+<dd><p>盤面を初期状態に戻す</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>board</strong> (<em>list</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em>) -- 各位置の碁の色情報を格納する配列</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.printColor">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">printColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.printColor" title="この定義へのパーマリンク"></a></dt>
+<dd><p>碁をプリント</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>color</strong> (<a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a>) -- 碁の色</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.putGo">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">putGo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rule.putGo" title="この定義へのパーマリンク"></a></dt>
+<dd><p>盤面の変更が必要であれば変更する
+変更がなければ変更が可能な座標を表示</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.resetBoard">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">resetBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rule.resetBoard" title="この定義へのパーマリンク"></a></dt>
+<dd><p>盤面を初期状態に戻す</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>board</strong> (<em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em><em>[</em><a class="reference internal" href="#rule.Color" title="rule.Color"><em>Color</em></a><em>]</em>) -- 各位置の碁の色情報を格納する配列</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rule.resetChange">
+<span class="sig-prename descclassname"><span class="pre">rule.</span></span><span class="sig-name descname"><span class="pre">resetChange</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rule.resetChange" title="この定義へのパーマリンク"></a></dt>
+<dd><p>色の変わる場所を初期状態に戻す</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>change</strong> (<em>list</em><em>[</em><em>int</em><em>]</em><em>[</em><em>int</em><em>]</em>) -- 色の変わる場所を格納する配列</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Shodai Fukui.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
